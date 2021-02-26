@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import { Text, View, FlatList, StyleSheet, Pressable} from "react-native";
 import axios from 'axios';
-
+import MovieShow from "./MovieShow";
 
 export default function Movies({ navigation }){
     const [ movies, setMovies] = useState([]);
@@ -37,20 +37,19 @@ export default function Movies({ navigation }){
     }, [])
     console.log(movies);
 
-    function goToMovie(id){
-        navigation.navigate("MovieShow", { id: id})
+    function goToMovie(item){
+        navigation.navigate("MovieShow", { item: item})
     }
 
-    return <View>
-            <Text>Movies</Text>
+    return <View style={styles.movieContainer}>
+            <Text style={styles.movieTitle}>Movies:</Text>
 
             <FlatList
                 data={movies}
                 renderItem={({ item }) => {
-                    return<Pressable style={styles.listItem} onPress={() => goToMovie(item.synopsis)}>
-                        <Text>
+                    return<Pressable onPress={() => goToMovie(item)}>
+                        <Text style={styles.listItem}>
                         {item.title}
-                        ({item.imdbrating})
                      </Text>
                     </Pressable>
             }}
@@ -63,11 +62,27 @@ export default function Movies({ navigation }){
 }
 
 const styles = StyleSheet.create({
+    movieContainer: {
+        alignItems: 'center',
+        backgroundColor: 'black',
+    },
     itemSeparator:{
-        borderBottomColor: 'blue',
+        borderBottomColor: 'red',
         borderWidth: 2
     },
     listItem:{
-
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        margin: 5,
+        fontSize: 15,
+        fontFamily: 'serif',
+        color: 'white'
+    },
+    movieTitle:{
+        color: 'red',
+        fontWeight: 'bold',
+        fontSize: 25,
+        fontFamily: 'serif'
     }
 })

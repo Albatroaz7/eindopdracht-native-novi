@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator} from "@react-navigation/stack";
+import MovieShow from "./Screens/MovieShow";
 
 import Homepage from "./Screens/Homepage";
 import Movies from "./Screens/Movies";
@@ -16,7 +17,14 @@ export default function App() {
      <Stack.Navigator initialRouteName="Home">
        <Stack.Screen name="Home" component={Homepage} />
        <Stack.Screen name="Movies" component={Movies} />
+       <Stack.Screen name="MovieShow" component={MovieShow} />
      </Stack.Navigator>
    </NavigationContainer>
   );
 }
+
+// const styles = StyleSheet.create({
+//     navigationContainer:{
+//         backgroundColor: 'black'
+//     }
+// })
