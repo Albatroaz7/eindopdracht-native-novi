@@ -66,9 +66,6 @@ export default function Movies({ navigation }){
                     </View>
             }}
                 keyExtractor={item => item.id.toString()}
-                ItemSeparatorComponent={() => {
-                    return <View style={styles.itemSeparator} />
-                } }
             />
         </View>
 }
