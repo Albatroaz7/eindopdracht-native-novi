@@ -1,11 +1,12 @@
 import React, { useEffect, useState} from 'react';
-import { Text, View, FlatList, StyleSheet, Pressable, TextInput} from "react-native";
+import {Text, View, FlatList, StyleSheet, Pressable, TextInput, Image, ImageBackground} from "react-native";
 import axios from 'axios';
 import MovieShow from "./MovieShow";
 
 export default function Movies({ navigation }){
     const [ movies, setMovies] = useState([]);
     const [ searchTerm, setSearchTerm] = useState('')
+
 
     const options1 = {
         method: 'GET',
@@ -43,10 +44,6 @@ export default function Movies({ navigation }){
         navigation.navigate("MovieShow", { item: item})
     }
 
-    // const handleOnChange = (e) => {
-    //     setSearchTerm(e.target.value);
-    // }
-
     return <View style={styles.movieContainer}>
             <Text style={styles.movieTitle}>Movies:</Text>
             <TextInput
@@ -59,6 +56,7 @@ export default function Movies({ navigation }){
                 renderItem={({ item }) => {
                     return<View key={item.id} style={styles.result}>
                     <Pressable onPress={() => goToMovie(item)}>
+                        <Image style={styles.images} source={{uri: item.img}}/>
                         <Text style={styles.heading}>
                         {item.title}
                      </Text>
@@ -78,21 +76,24 @@ const styles = StyleSheet.create({
     },
     results: {
         flex: 1,
+        width: '100%',
+        padding: 50
     },
     result: {
         flex: 1,
         width: '100%',
-        marginBottom: 20
+        marginBottom: 20,
+        padding: 75
     },
     heading: {
         color: 'black',
         fontSize: 18,
         fontWeight: '700',
-        padding: 20,
+        padding: 10,
         backgroundColor: '#990000'
     },
     movieTitle:{
-        color: '#990000',
+        color: 'red',
         fontWeight: 'bold',
         fontSize: 25,
         fontFamily: 'serif'
@@ -101,9 +102,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '300',
         padding: 10,
-        width: '100%',
+        width: '50%',
         backgroundColor: '#4d4d4d',
         borderRadius: 8,
-        marginBottom: 40
+        marginBottom: 40,
+        color: 'red'
+    },
+    images: {
+        width: '100%',
+        height: '100%',
+        padding: 100
     }
 })
