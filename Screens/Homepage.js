@@ -42,12 +42,13 @@ const styles = StyleSheet.create({
     homeText: {
         fontSize: 18,
         color: 'white',
-        flex: 0.3,
+        flex: 0.4,
         backgroundColor: 'black',
         borderWidth: 2,
         borderColor: '#990000',
         alignSelf: 'center',
-        paddingHorizontal: 30
+        paddingHorizontal: 40,
+        textAlign: 'center'
     },
     button: {
         alignItems: 'center',
