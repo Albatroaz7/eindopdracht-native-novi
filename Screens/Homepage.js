@@ -9,7 +9,9 @@ export default function Homepage({ navigation }){
         <View style={styles.container}>
             <ImageBackground source={image} style={styles.backgroundImage}>
             <Text style={styles.homeTitle}>Netflix</Text>
-            <Text style={styles.homeText}>Welcome to the Netflix Movie app. If you will click on the button below, you'll find a list of movies. Whenever u click on one of the movies, you'll see a overview of the movie with all sorts of information!</Text>
+            <Text style={styles.homeText}>Welcome to the Netflix Movie app. If you click on the button below, you'll find a search option and a list of movies. With the
+                search option you can look up every movie that is available on Netflix. Whenever you click on one of the movies,
+                you'll see an overview of the movie with all sorts of information!</Text>
             <TouchableOpacity
                 style={styles.button}
                 title="View Movies"

@@ -24,8 +24,6 @@ export default function Movies({ navigation }){
         }
     };
 
-    //Using the useEffect to get the data from the API the moment the user presses 'enter', by using
-    //the searchTerm state in the dependency.
     useEffect(() => {
         async function getMovie() {
             try {
